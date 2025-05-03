@@ -13,14 +13,19 @@
 <body>
     <div class="container text-center">
         <div class="card">
-This <a href="https://www.pexels.com/photo/food-dinner-lunch-meal-4147875">Photo</a> was taken by <a href="https://www.pexels.com/@daria">Daria</a> on Pexels.
-
-            <img src="[attachment_0](attachment)" alt="Birthday Candles" class="img-fluid rounded">
+            <img src="" alt="Birthday Candles" class="img-fluid rounded">
             <div class="card-body">
                 <h1 class="card-title">You are invited to celebrate Jasmine’s Birthday!</h1>
                 <p class="card-text">May 24th, 2:30pm - 5:30pm</p>
                 <p class="card-text">@ Boardroom, Wimbledon Quarter, Wimbledon</p>
+                <button type="button" class="btn btn-primary mt-3" id="rsvpButton">RSVP</button>
             </div>
+        </div>
+
+        <div class="mt-4">
+            <h2>Friends Who Are Coming:</h2>
+            <ul id="guestList" class="list-group">
+                </ul>
         </div>
     </div>
 
@@ -29,6 +34,13 @@ This <a href="https://www.pexels.com/photo/food-dinner-lunch-meal-4147875">Photo
     <script>
         $(document).ready(function(){
             $(".card").fadeIn(1000);
+
+            $("#rsvpButton").click(function(){
+                var guestName = prompt("You are invited to Jasmine's birthday party! What is your name?");
+                if (guestName && guestName.trim() !== "") {
+                    $("#guestList").append(`<li class="list-group-item">${guestName.trim()}</li>`);
+                }
+            });
         });
     </script>
 </body>
